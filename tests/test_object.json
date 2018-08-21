@@ -1,0 +1,15 @@
+{
+  "items": {
+    "Test_Item": {
+      "name": "Test Item",
+      "description": "Test description",
+      "cooldown": 42.0,
+      "embryo": "Test Embryo",
+      "drop": "Test Drop",
+      "stack": "+420% damage",
+      "unlock": "Unlock Rust",
+      "hasVideo": true,
+      "itemClass": "white"
+    }
+  }
+}
