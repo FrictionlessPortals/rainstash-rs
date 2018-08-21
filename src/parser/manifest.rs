@@ -24,6 +24,8 @@ pub struct RiskItem {
     pub drop: Option<String>,
     #[serde(rename = "hasVideo")]
     pub has_video: Option<bool>,
+    #[serde(rename = "maxStacks")]
+    pub max_stacks: Option<i32>,
     #[serde(deserialize_with = "deserialize_class_field", rename = "itemClass")]
     pub item_class: RiskClass,
 }
@@ -43,6 +45,7 @@ impl fmt::Display for RiskItem {
              Unlock: {}, \
              Drop: {}, \
              Has Video: {}, \
+             Max Stack Size: {}, \
              Item Class: {}",
             self.name,
             self.description,
@@ -52,6 +55,7 @@ impl fmt::Display for RiskItem {
             self.match_unlock(),
             self.match_drop(),
             self.match_video(),
+            self.match_stack_size(),
             self.item_class.class_to_string()
         )
     }
@@ -68,6 +72,7 @@ impl Hash for RiskItem {
         self.match_unlock().hash(state);
         self.match_drop().hash(state);
         self.match_video().hash(state);
+        self.match_stack_size().hash(state);
         // TODO: Add ItemClass here.
     }
 }
@@ -132,6 +137,16 @@ impl RiskItem {
             Some(true) => true,
             Some(false) => false,
             None => false,
+        }
+    }
+
+    /// Safely match maxStack into a usable value.
+    /// Returns stack size in object if value exists.
+    /// Returns 0 if no stack size is found.
+    pub fn match_stack_size(&self) -> i32 {
+        match self.max_stacks {
+            Some(v) => v,
+            None => 0,
         }
     }
 }

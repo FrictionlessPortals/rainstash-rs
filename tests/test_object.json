@@ -9,6 +9,7 @@
       "stack": "+420% damage",
       "unlock": "Unlock Rust",
       "hasVideo": true,
+      "maxStacks": 42,
       "itemClass": "white"
     }
   }

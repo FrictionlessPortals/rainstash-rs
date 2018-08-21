@@ -42,7 +42,7 @@ mod tests {
         use parser::json::parse_items_from_file;
         use std::path::Path;
 
-        let parsed = parse_items_from_file(Path::new("test/test_object.json"))?;
+        let parsed = parse_items_from_file(Path::new("tests/test_object.json"))?;
         let object = parsed.get("Test_Item").unwrap();
 
         Ok(assert_eq!(object.name, "Test Item"))
