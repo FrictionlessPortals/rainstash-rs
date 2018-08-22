@@ -17,9 +17,8 @@ use std::fs::File;
 use std::io::Write;
 use std::path::Path;
 
-/// Hard coded Rainstash Manifest URL. User can also pass a custom one into the function call.
-// TODO: Update this link once Rainstash modded branch is pushed.
-static URL: &'static str = "https://fustran.github.io/rainstash/src/itemManifest.js";
+/// Hard coded Rainstash Vanilla Manifest URL. User can also pass a custom one into the function call when updating.
+static VANILLA_URL: &'static str = "https://fustran.github.io/rainstash/items/vanilla_items/itemManifest.json";
 
 /// Download and or update the Rainstash local manifest cache.
 /// The user can pass a custom rainstash_url or supply "None" for the function to use
@@ -30,7 +29,7 @@ pub fn update_rainstash_cache<T: AsRef<Path>>(
 ) -> Result<(), RainstashError> {
     let url = match rainstash_url {
         Some(u) => u,
-        None => URL,
+        None => VANILLA_URL,
     };
 
     info!("[!] Updating database: GET {}", url);

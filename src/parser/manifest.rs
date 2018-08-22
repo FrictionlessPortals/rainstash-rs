@@ -73,7 +73,7 @@ impl Hash for RiskItem {
         self.match_drop().hash(state);
         self.match_video().hash(state);
         self.match_stack_size().hash(state);
-        // TODO: Add ItemClass here.
+        self.item_class.class_to_string().hash(state);
     }
 }
 
