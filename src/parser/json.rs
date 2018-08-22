@@ -63,11 +63,11 @@ pub fn parse_items_from_file<T: AsRef<Path>>(
 /// Returns a HashMap of the class object name and the color as a String.
 pub fn parse_class_info_from_file<T: AsRef<Path>>(
     path: T,
-) -> Result<HashMap<String, String>, RainstashError> {
+) -> Result<HashMap<String, HashMap<String, String>>, RainstashError> {
     info!("[!] Opening manifest file and parsing classInfo object.");
 
     let file: Value = from_reader(File::open(path)?)?;
-    let parsed: HashMap<String, String> = from_value(
+    let parsed: HashMap<String, HashMap<String, String>> = from_value(
         file.get("classInfo")
             .expect("[!] Could not parse classInfo section of JSON.")
             .to_owned(),
