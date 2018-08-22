@@ -192,13 +192,13 @@ where
 {
     let result: Value = Deserialize::deserialize(de)?;
     match result {
-        Value::String(ref s) if &*s == "white" => Ok(RiskClass::White),
-        Value::String(ref s) if &*s == "green" => Ok(RiskClass::Green),
-        Value::String(ref s) if &*s == "red" => Ok(RiskClass::Red),
-        Value::String(ref s) if &*s == "yellow" => Ok(RiskClass::Yellow),
-        Value::String(ref s) if &*s == "orange" => Ok(RiskClass::Orange),
-        Value::String(ref s) if &*s == "purple" => Ok(RiskClass::Purple),
-        Value::String(ref s) if &*s == "misc" => Ok(RiskClass::Grey),
+        Value::String(ref s) if &*s == "common items" => Ok(RiskClass::White),
+        Value::String(ref s) if &*s == "uncommon items" => Ok(RiskClass::Green),
+        Value::String(ref s) if &*s == "rare items" => Ok(RiskClass::Red),
+        Value::String(ref s) if &*s == "boss items" => Ok(RiskClass::Yellow),
+        Value::String(ref s) if &*s == "use items" => Ok(RiskClass::Orange),
+        Value::String(ref s) if &*s == "special items" => Ok(RiskClass::Purple),
+        Value::String(ref s) if &*s == "misc items" => Ok(RiskClass::Grey),
         _ => Ok(RiskClass::None),
     }
 }
