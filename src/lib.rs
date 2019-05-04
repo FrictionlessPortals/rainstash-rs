@@ -22,11 +22,11 @@ pub mod utils;
 
 #[cfg(test)]
 mod tests {
-    use utils::error::RainstashError;
+    use super::utils::error::RainstashError;
 
     #[test]
     fn parser_test() -> Result<(), RainstashError> {
-        use parser::json::parse_items_from_file;
+        use super::parser::json::parse_items_from_file;
         use std::path::Path;
 
         let parsed = parse_items_from_file(Path::new("tests/test_object.json"))?;
