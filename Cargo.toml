@@ -1,20 +1,20 @@
 [package]
 name = "rainstash-rs"
 version = "0.1.0"
-authors = ["FrictionlessPortals <frictionless@frictionless.cf>"]
+authors = ["FrictionlessPortals <8077147+FrictionlessPortals@users.noreply.github.com>"]
 repository = "https://github.com/FrictionlessPortals/rainstash-rs.git"
 homepage = "https://github.com/FrictionlessPortals/rainstash-rs.git"
 license = "MIT"
 readme = "README.md"
 description = "Simple library for parsing Rainstash JSON data into simple structs."
+edition = "2018"
 
 [lib]
 name = "rainstash"
 path = "src/lib.rs"
 
 [dependencies]
-serde           = "1.0.71"
-serde_json      = "1.0.24"
-serde_derive    = "1.0.71"
-log             = "0.4.3"
-reqwest         = "0.8.7"
+serde           = { version = "1.0", features = ["derive"] }
+serde_json      = "1.0"
+log             = "0.4"
+reqwest         = "0.9"
