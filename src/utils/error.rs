@@ -3,9 +3,6 @@
 //! To use this implement the custom Error type in your functions.
 use std::{error, fmt, io, num};
 
-use reqwest;
-use serde_json;
-
 #[derive(Debug)]
 pub enum RainstashError {
     Io(io::Error),

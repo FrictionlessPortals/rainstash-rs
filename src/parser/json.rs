@@ -6,19 +6,18 @@
 //! The parser also offers ways to update from Rainstash or load from a file
 //! cached from the last update, removing the need to download the file every function
 //! call.
-use utils::error::RainstashError;
-use parser::manifest::RiskItem;
-
+use crate::{parser::manifest::RiskItem, utils::error::RainstashError};
+use log::info;
 use reqwest::get;
 use serde_json::{from_reader, from_value, Value};
-
 use std::collections::HashMap;
 use std::fs::File;
 use std::io::Write;
 use std::path::Path;
 
 /// Hard coded Rainstash Vanilla Manifest URL. User can also pass a custom one into the function call when updating.
-static VANILLA_URL: &'static str = "https://fustran.github.io/rainstash/items/vanilla_items/itemManifest.json";
+static VANILLA_URL: &'static str =
+    "https://fustran.github.io/rainstash/items/vanilla_items/itemManifest.json";
 
 /// Download and or update the Rainstash local manifest cache.
 /// The user can pass a custom rainstash_url or supply "None" for the function to use

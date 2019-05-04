@@ -17,21 +17,8 @@
 //! ```rs
 //! extern crate rainstash;
 //! ```
-#![allow(dead_code)]
-#![allow(unknown_lints)]
-#![allow(doc_markdown, inline_always)]
-
-#[macro_use]
-extern crate log;
-#[macro_use]
-extern crate serde_derive;
-extern crate reqwest;
-extern crate serde;
-extern crate serde_json;
-
 pub mod parser;
 pub mod utils;
-pub mod matching;
 
 #[cfg(test)]
 mod tests {
